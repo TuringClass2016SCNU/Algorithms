@@ -1,0 +1,25 @@
+﻿---
+BasedOnStyle: LLVM
+AccessModifierOffset: '8'
+AlignAfterOpenBracket: 'true'
+AlignEscapedNewlinesLeft: 'true'
+AlignOperands: 'true'
+AlignTrailingComments: 'true'
+AllowAllParametersOfDeclarationOnNextLine: 'true'
+AllowShortBlocksOnASingleLine: 'false'
+AllowShortCaseLabelsOnASingleLine: 'true'
+AllowShortLoopsOnASingleLine: 'false'
+AlwaysBreakBeforeMultilineStrings: 'true'
+AlwaysBreakTemplateDeclarations: 'true'
+BreakBeforeTernaryOperators: 'true'
+BreakConstructorInitializersBeforeComma: 'true'
+ColumnLimit: '100'
+Language: Cpp
+SpaceBeforeParens: Always
+SpacesInParentheses: 'true'
+SpacesInSquareBrackets: 'true'
+Standard: Auto
+TabWidth: '8'
+IndentWidth: 8
+
+...
