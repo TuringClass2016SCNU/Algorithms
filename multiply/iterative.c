@@ -9,9 +9,9 @@ int multiply(int a,int b){
     if(b % 2)
       result = result + a;
     //删去一比特
-    b = b / 2;
+    b = b >> 1;
     //b每删掉一比特a应该乘一个2
-    a = a * 2;
+    a = a << 1;
   }
   return result;
 }
