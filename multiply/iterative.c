@@ -17,11 +17,17 @@ int multiply(int a,int b){
 }
 
 //求a的b次幂,迭代
-int power(int a,int b){
+int power(int a, int b){
   int result = 1;
   while (b != 0) {
-    result = multiply(result, a);
-    b--;
+    //判断奇偶
+    if(b % 2){
+      result = result * a;
+      b--;
+    }else{
+      result = result * result;
+      b = b / 2;
+    }
   }
   return result;
 }
