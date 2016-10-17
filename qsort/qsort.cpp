@@ -25,17 +25,19 @@ int main() {
   sequence = new int[n];
   for (int itor = 0; itor < n; itor++) {
     cin >> sequence[itor];
-  }
+  } // Input the sequence;
 
-  qs(n, sequence, 0, n - 1);
+  qs(n, sequence, 0, n - 1); // Sort;
   for (int itor = 0; itor < n; itor++) {
     cout << sequence[itor] << " ";
-  }
+  } // ouput;
   delete[] sequence;
   return 0;
 }
 
 void qs(int n, int argv[], int former, int latter) {
+  // recurrence to achieve the sort;
+  // mid: temprory mid pointer;
   int temp_former = former, temp_latter = latter;
   int mid = (former + latter) / 2;
   int choose;
@@ -67,6 +69,8 @@ void qs(int n, int argv[], int former, int latter) {
 }
 
 int random(double start, double end) {
+  // input: The domain of a random number;
+  // output: A random number;
   srand(unsigned(time(0)));
   return start + (end - start) * rand() / (RAND_MAX + 1.0);
 }
