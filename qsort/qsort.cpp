@@ -2,9 +2,6 @@
 #include <cstdlib>
 #include <ctime>
 #include <iostream>
-
-using namespace std;
-
 /* Quick sort's optimization;
  * Procedure:
  * 0.1 Input:line 1:n:stand for the count of the number;
@@ -14,15 +11,18 @@ using namespace std;
  * 1.Create a random number, then set as a mid number;  (n>100)
  * 2.qs..........................................
  * 完啦。。。略略略。。*/
+using namespace std;
+int *sequence;
 int random(double start, double end);
 void qs(int n, int argv[], int former,
         int latter); // amount, sequence, former_pointer, latter_pointer;
+void swap(int &a, int &b);
 int main() {
   int n; // amount;
 
   cin >> n;
 
-  int *sequence = new int[n];
+  sequence = new int[n];
   for (int itor = 0; itor < n; itor++) {
     cin >> sequence[itor];
   }
@@ -36,41 +36,43 @@ int main() {
 }
 
 void qs(int n, int argv[], int former, int latter) {
-  int i = former, j = latter;
+  int temp_former = former, temp_latter = latter;
   int mid = (former + latter) / 2;
   int choose;
-  int swap_temp;
+
   if (latter - former > 100) {
     choose = random(n * 0.382, n * 0.618);
-    swap_temp = argv[mid];
-    argv[mid] = argv[choose];
-    argv[choose] = swap_temp;
+    swap(argv[mid], argv[choose]);
   }
 
   int mid_d = argv[(former + latter) / 2];
   do {
-    while (argv[i] < mid_d) {
-      i++;
+    while (argv[temp_former] < mid_d) {
+      temp_former++;
     }
 
-    while (mid_d < argv[j]) {
-      j--;
+    while (mid_d < argv[temp_latter]) {
+      temp_latter--;
     }
-    if (i <= j) {
-      swap_temp = argv[i];
-      argv[i] = argv[j];
-      argv[j] = swap_temp;
-      i++;
-      j--;
+    if (temp_former <= temp_latter) {
+      swap(argv[temp_former], argv[temp_latter]);
+      temp_former++;
+      temp_latter--;
     }
-  } while (i <= j);
-  if (former < j)
-    qs(n, argv, former, j);
-  if (i < latter)
-    qs(n, argv, i, latter);
+  } while (temp_former <= temp_latter);
+  if (former < temp_latter)
+    qs(n, argv, former, temp_latter);
+  if (temp_former < latter)
+    qs(n, argv, temp_former, latter);
 }
 
 int random(double start, double end) {
   srand(unsigned(time(0)));
   return start + (end - start) * rand() / (RAND_MAX + 1.0);
+}
+
+void swap(int &a, int &b) {
+  int temp = a;
+  a = b;
+  b = temp;
 }
