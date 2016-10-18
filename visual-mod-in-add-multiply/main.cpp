@@ -9,12 +9,13 @@
   @return void
   @note the program will pause in the function
 */
-void print(char sum, char a, char b, char bit, char flag){
-  std::cout << "SUM :" << std::bitset<8>(sum) << std::endl;
-  std::cout << "A   :" << std::bitset<8>(a) << std::endl;
-  std::cout << "BIT :" << std::bitset<8>(bit) << std::endl;
-  std::cout << "B   :" << std::bitset<8>(b) << std::endl;
-  std::cout << "FLAG:" << std::bitset<1>(flag) << std::endl;
+void print(char* oper, char sum, char a, char b, char bit, char flag){
+  std::cout << "OPER: " << oper << std::endl;
+  std::cout << "SUM : " << std::bitset<8>(sum) << std::endl;
+  std::cout << "A   : " << std::bitset<8>(a) << std::endl;
+  std::cout << "BIT : " << std::bitset<8>(bit) << std::endl;
+  std::cout << "B   : " << std::bitset<8>(b) << std::endl;
+  std::cout << "FLAG: " << std::bitset<1>(flag) << std::endl;
 
   std::getchar();
 }
@@ -65,7 +66,7 @@ char add(char a, char b){
       }
     }
 
-    print(result, a, b, bit, flag);
+    print("ADD", result, a, b, bit, flag);
 
     bit <<= 1;
   }
@@ -81,6 +82,23 @@ char add(char a, char b){
 char multiply(char a, char b){
   char result = 0;
 
+  if(b == 0){
+    result = 0;
+    print("MULTIPLY", result, a, 1, b, 0);
+  }
+  else{
+    if(b == 1){
+      result = a;
+      print("MULTIPLY", result, a, 1, b, 0);
+    }
+    else{
+      char hi, lo;
+      hi = multiply(a << 1, b >> 1);
+      lo = multiply(a, b & 1);
+      result = add(hi, lo);
+    }
+  }
+
   return result;
 }
 
@@ -89,15 +107,19 @@ int main(){
 
   result = add((char)3, (char)5);
   std::cout << "3 + 5 = " << result << std::endl << std::endl;
+  std::getchar();
 
   result = add((char)76, (char)107);
   std::cout << "100 + 127 = " << result << std::endl << std::endl;
-/*
+  std::getchar();
+
   result = multiply((char)7, (char)3);
   std::cout << "7 * 3 = " << result << std::endl;
+  std::getchar();
 
   result = multiply((char)13, (char)11);
   std::cout << "13 * 11 = " << result << std::endl;
-*/
+  std::getchar();
+
   return 0;
 }
