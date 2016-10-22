@@ -1,6 +1,5 @@
 #include <malloc.h>
 #include <stdio.h>
-#include <string.h>
 
 void *_tmp_hook = NULL;
 #define data_to_pointer( data, type ) \
