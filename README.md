@@ -13,7 +13,7 @@ This repository contains several directories.Each of them is relevant to an algo
 
 2.2 if the souce codes (satisfied the condition above) are written in different languages,they should be put into different directories whose names should be specified arccording programming languages.
 
-2.3 if it is possible, fork this repository and modifly it by yourself.( if you want to upload the files you can creat a new pull request).
+2.3 if it is possible, fork this repository and modify it by yourself.( if you want to upload the files you can creat a new pull request).
 
 2.4 the files name shouldn't contains any space or chinese !...!
 
