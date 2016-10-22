@@ -4,6 +4,7 @@ This repository contains several directories.Each of them is relevant to an algo
 
 ## NOTE
 1.We consider that one directory contains one project which is maintained by specified men.
+
 2.As a developer, if you want to upload your file, you should following the uploading file rules.
 **Uploading rules**
 
