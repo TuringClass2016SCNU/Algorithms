@@ -13,6 +13,7 @@ This repository contains several directories.Each of them is relevant to an algo
 		2.3 if it is possible, fork this repository and modifly it by yourself.( if you want to upload the files you can creat a new pull request).
 		2.4 the files name shouldn't contains any space or chinese !...!
 		2.5 the naming rules we recommended is 
-[title](http://zh-google-styleguide.readthedocs.io/en/latest/contents/)
+[google-styleguide](http://zh-google-styleguide.readthedocs.io/en/latest/contents/)
+
 		2.6 the codes should contain necessary comments.
 		2.7 unnecessary files should be ignored by modiflying the .gitignore
