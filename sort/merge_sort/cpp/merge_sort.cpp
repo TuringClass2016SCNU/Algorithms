@@ -49,19 +49,17 @@ void merge(int argv[], int pre, int mid, int r) {
    *    pre:    the first one of the sub-array;
    *    mid:    the middium one of it;
    *    r  :    the last one.
-   *
    *  output: partically sorted array.
    */
 
-  int n_1 = mid - pre + 1;
-  int n_2 = r - mid;
-  int *Lt = new int[n_1];
-  // new and store(or define as)the Left sight of the array;
-  int *Rt = new int[n_2];
-  // new and store(or define as)the Right sight of the array;
   int i, j;
-  // Do as iterator and pointer;
-
+  int n_2 = r - mid;
+  int n_1 = mid - pre + 1;
+  int *Lt = new int[n_1];
+  int *Rt = new int[n_2];
+  // i,j: Do as iterator and pointer;
+  // Lt:new and store(or define as)the Left sight of the array;
+  // Rt:new and store(or define as)the Right sight of the array;
   for (i = 0; i < mid - pre + 1; i++) {
     Lt[i] = argv[pre + i];
   }
@@ -73,33 +71,16 @@ void merge(int argv[], int pre, int mid, int r) {
   i = 0; //
   j = 0; // Initalize the pointer;
   int k = pre;
-  while (k <= r && i < n_1 && j < n_2) { /// TEST CODE if (i < n_1 && j < n_2)
+  while (k <= r && i < n_1 && j < n_2) {
     {
       if (Lt[i] < Rt[j]) {
-        argv[k] = Lt[i];
-        i++;
-      } else { /// TEST CODE (Lt[i] > Rt[j])
-        argv[k] = Rt[j];
-        j++;
+        argv[k++] = Lt[i++];
+      } else {
+        argv[k++] = Rt[j++];
       }
     }
-    k++;
   }
-  /*  ///TEST CODE
-    if (i >= n_1 && j < n_2) {
-      argv[k] = Rt[j];
-      j++;
-    }
-    if (j >= n_2 && i < n_1) {
-      argv[k] = Lt[i];
-      i++;
-    }
-    k++;
-    for (size_t gg = 0; gg <= k; gg++) {
-      cout << "---" << argv[gg] << "---" << endl;
-    }
-    cout << endl;
-  }*/
+  // The else condition
   while (j < n_2) {
     argv[k++] = Rt[j++];
   }
